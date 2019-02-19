@@ -53,10 +53,15 @@ http.createServer(function (req, res) {
     if (tipo == "css")
       mime = "text/css"
 
+    if (['mp4'].includes(tipo)){
+      console.log("VIDEO!!!!!")
+      mime = "video/" + tipo
+    }
     //-- Generar el mensaje de respuesta
     res.writeHead(200, {'Content-Type': mime});
     res.write(data);
     res.end();
+
   });
 
 }).listen(8080);
