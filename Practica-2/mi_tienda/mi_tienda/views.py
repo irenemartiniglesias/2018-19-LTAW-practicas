@@ -1,13 +1,10 @@
 from django.http import HttpResponse
+from django.template.loader import get_template
 from django.template import Template, Context
+from django.shortcuts import render
 
 def index(request):
-    fp = open('\Users\Irene\Documents\isam\cuarto isam\LTAW\2018-19-LTAW-practicas\Practica-2\mi_tienda\template\main.html')
-    t = Template(fp.read())
-    fp.close()
-    c = Context({'user': 'Imartini'})
-    html = t.render(c)
-    return HttpResponse(html)
+    return render(request, 'main.html', {'user':'Imartini'})
 
 def mi_funcion(request):
 	html = "Hola! Mi primera UrL!!"

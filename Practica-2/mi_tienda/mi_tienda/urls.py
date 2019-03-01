@@ -21,7 +21,7 @@ from mi_tienda.views import saludo
 from mi_tienda.views import index
 
 urlpatterns = [
-    url(r'main/', index),
+    url(r'^main/', index),
     url(r'^producto/(\d{1,2})/$', mi_producto),
     url(r'saludo/', saludo),
     url(r'^hola/', mi_funcion),

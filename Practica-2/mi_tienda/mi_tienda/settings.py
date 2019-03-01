@@ -54,7 +54,7 @@ ROOT_URLCONF = 'mi_tienda.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': ['/Users/Irene/Documents/isam/cuarto isam/LTAW/practicas/Practica-2/mi_tienda/mi_tienda/templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
