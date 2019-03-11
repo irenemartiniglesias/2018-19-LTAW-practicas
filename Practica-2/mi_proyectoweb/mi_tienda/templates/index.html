@@ -4,11 +4,43 @@
 <html lang="es" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>MI TIENDA</title>
-    <link rel="stylesheet" href="{% static 'mi-css.css'%}">
+    <title>Mi tienda</title>
+    <link rel="stylesheet" href="{% static 'micss.css'%}">
+    <script src="{% static 'mijs.js' %}"></script>
   </head>
-  <body>
-    <p>BIENVENIDO A MI TIENDA con estilo</p>
-    <img src="/static/moviles-portada.jpg" alt="NOPE">
+  <body onload= "main();">
+    <div align = "center">
+      <h1> Ms Witty Shop </h1>
+    </div>
+    <div align = "center">
+      <table id= "t02">
+        <tr>
+          <th>
+            <p> Sobre nosotros </p>
+          </th>
+          <th>
+            <a href="video.html">
+              <p> Video </p>
+            </a>
+          </th>
+          <th>
+            <p> Contacto </p>
+          </th>
+        </tr>
+      </table>
+    </div>
+    <div align = "center">
+      <table>
+        <tr>
+          <th>
+            <a>
+              <img src ="/static/moviles-portada.jpg" id= "movil" alt="Portada Moviles" width="300" height="350">
+              <br>
+              <a href="/moviles"  class="but" title=""> Ver Móviles</a>
+            </a>
+          </th>
+        </tr>
+      </table>
+    </div>
   </body>
 </html>

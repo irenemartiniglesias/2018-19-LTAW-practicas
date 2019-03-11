@@ -1,0 +1,60 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="" />
+<title> TU PEDIDO</title>
+<meta name="description" content="" />
+<link rel="stylesheet" href="{% static 'micss.css'%}">
+
+<!-- Pirobox setup and styles end-->
+
+<div id="header">
+  <h2>SELECCIONA EL MODELO DE MÓVIL!</h2>
+</div>
+
+</head>
+  <body>
+
+    <h2> Tu pedido</h2>
+
+<!-- header begins -->
+
+    <div id="header">
+    <div style="height:50px"></div>
+    </div>
+     <div id="buttons">
+        <a href="/" class="but"  title="">Inicio </a>
+        <a href="/moviles"  class="but" title=""> Galeria de Stock</a>
+    </div>
+
+    <h1> Elige el modelo de móvil </h1>
+    <form action="/factura">
+        <input type="radio" name="movil" checked> IPHONE XS<br>
+        <input type="radio" name="movil" > IPHONE XR<br>
+        <input type="radio" name="movil" > IPHONE 8 PLUS<br>
+        <input type="radio" name="movil" >SAMSUNG S9<br>
+        <input type="radio" name="movil" > SAMSUNG A9<br>
+        <input type="radio" name="movil" > HUAWEI MATE 20<br>
+    <br><br>
+    </form>
+  <div style="height:30px"></div>
+
+    <h1> Elige la cantidad</h1>
+    <form action="/factura">
+      Cantidad:
+      <select name="cars" size="3">
+        <option >1</option>
+        <option >2</option>
+        <option >3</option>
+        <option >4</option>
+        <option >5</option>
+        <option >6</option>
+      </select>
+      <br></br>
+      <input type="submit" value ="Submit">
+    </form>
+
+  </body>
+</html>
