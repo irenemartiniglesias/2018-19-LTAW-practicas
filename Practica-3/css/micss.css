@@ -8,6 +8,13 @@ h1{
   color: #202D47;
   font-size: 200%;
 }
+h2{
+  font-family: "Adobe Caslon Pro", "Hoefler Text", Georgia, Garamond, Times, serif;
+  font-style: italic;
+  text-align: center;
+  color: #202D47;
+  font-size: 200%;
+}
 table{
   border: 0px;
   border-spacing: 50px;
