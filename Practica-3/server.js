@@ -28,6 +28,48 @@ http.createServer(function (req, res) {
     console.log("Cookie: " + cookie)
     //-- ESTABLECER LA COOKIE!!
     res.setHeader('Set-Cookie', 'user=irenemartin')
+  }else if(q.pathname =="/myform.html"){
+    if (req.method === 'POST') {
+        // Handle post info...
+
+        var content = `
+        <!DOCTYPE html>
+        <html lang="es">
+          <head>
+            <meta charset="utf-8">
+            <title>RESUMEN COMPRA</title>
+            <link rel="stylesheet" href="/css/micss.css">
+          </head>
+          <body>
+            <p>Recibido: `
+
+        req.on('data', chunk => {
+            //-- Leer los datos (convertir el buffer a cadena)
+            data = chunk.toString();
+
+            //-- Añadir los datos a la respuesta
+            content += data;
+
+            //-- Fin del mensaje. Enlace al formulario
+            content += `
+                </p>
+                <a href="/">[Página Principal]</a>
+              </body>
+            </html>
+            `
+            //-- Mostrar los datos en la consola del servidor
+            console.log("Datos recibidos: " + data)
+            res.statusCode = 200;
+         });
+
+         req.on('end', ()=> {
+           //-- Generar el mensaje de respuesta
+           res.setHeader('Content-Type', 'text/html')
+           res.write(content);
+           res.end();
+         })
+         return
+      }
   }else{
     filename = q.pathname
   }
