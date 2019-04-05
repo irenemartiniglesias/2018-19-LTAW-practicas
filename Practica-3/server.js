@@ -41,6 +41,8 @@ http.createServer(function (req, res) {
             <link rel="stylesheet" href="/css/micss.css">
           </head>
           <body>
+            <p>Tu pedido se ha realizado con éxito, a continuación se muestran los datos recibidos</p>
+            <br/>
             <p>Recibido: `
 
         req.on('data', chunk => {
