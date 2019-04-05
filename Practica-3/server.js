@@ -2,6 +2,15 @@ var http = require('http');
 var fs = require ('fs');
 var url = require('url');
 
+var producto_basedatos={
+  '0' : ['iphone xs', 'iphonexs.html'],
+  '1' : ['iphone xr', 'iphonexr.html'],
+  '2' : ['iphone 8 plus', 'iphone8.html'],
+  '3' : ['samsung s9', 'sasumgs9.html'],
+  '4' : ['samsung a9', 'sasumga9.html'],
+  '5' : ['huawei mate 20', 'huaweimate20.html']
+};
+
 console.log("Arrancando servidor...")
 
 
