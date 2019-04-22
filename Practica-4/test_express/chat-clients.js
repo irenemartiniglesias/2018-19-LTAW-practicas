@@ -6,13 +6,10 @@ function main() {
   var socket = io();
 
   //-- Obtener los elementos de interfaz:
-
   //-- Boton de envio de mensaje
   var send = document.getElementById('send')
-
   //-- Parrafo para mostrar mensajes recibidos
   var display = document.getElementById('display')
-
   //-- Caja con el mensaje a enviar
   var msg = document.getElementById("msg")
 
