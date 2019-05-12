@@ -1,0 +1,24 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+      <meta charset="utf-8">
+      <title>Mi tienda</title>
+      <link rel="stylesheet" href="{% static 'micss.css'%}">
+      <script src="{% static 'mijs.js' %}"></script>
+    </head>
+
+    <body onload="main();" text-align: center;>
+      <ul>
+          {% for msg in lista %}
+          <p>{{ msg.nombre}} {{msg.direccion}} {{ msg.movile }} {{ msg.mail}} {{ msg.mensaje}}</p>
+          {% endfor %}
+      </ul>
+
+      <div id="buttons">
+        <a href="/"  class="but" title="">Inicio    </a>
+        <a href="/order"  class="but" title="">    Hacer Pedido</a>
+      </div>
+    </body>
+</html>

@@ -6,6 +6,7 @@ urlpatterns=[
     url(r'^list/', views.list),
     url(r'^moviles/', views.moviles),
     url(r'^order/', views.contact),
+    url(r'^bdpedido/', views.basedato_pedido),
     url(r'^factura/', views.factura),
     url(r'^iphonexs/', views.iphonexs),
     url(r'^iphonexr/', views.iphonexr),

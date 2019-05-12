@@ -6,6 +6,7 @@ from django.http import HttpResponse
 
 from mi_tienda.forms import ContactForm
 from mi_tienda.models import Product
+from mi_tienda.models import Pedido
 
 # Create your views here.
 def home_view (request):
@@ -20,6 +21,7 @@ def contact(request):
         if form.is_valid():
             cd = form.cleaned_data
             #send_mail(cd['subject'], cd ['movile'], cd['message'])
+            form.save()
             return HttpResponseRedirect('/factura/')
     else:
         form = ContactForm()
@@ -27,6 +29,18 @@ def contact(request):
 
 def factura(request):
     return render(request, "factura.html", {})
+
+def basedato_pedido(request):
+
+    pedido = []
+    html = "<h1>Lista de Pedidos</h1>"
+    objects = Pedido.objects.all()
+
+    for order in objects:
+
+        pedido.append(order);
+
+    return render(request,'bd_pedido.html',{'lista':pedido})
 
 def iphonexs(request):
     return render(request, "iphone-xs.html", {})
