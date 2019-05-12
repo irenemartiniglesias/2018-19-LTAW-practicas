@@ -1,0 +1,29 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="" />
+    <title> TU PEDIDO</title>
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="{% static 'micss.css'%}">
+  </head>
+  <body>
+    <h1> Contactanos </h1>
+
+      {% if form.errors %}
+          <p style= "color: red;">
+              Por favor, corrija los campos en rojo {{ form.errors|pluralize }} indicados.
+          </p>
+      {% endif %}
+
+      <form action= "/factura/" method= "post">
+        {% csrf_token%}
+          <table>
+              {{ form.as_table}}
+          </table>
+          <input type= "submit" value= "Submit">
+      </form>
+    </body>
+</html>
