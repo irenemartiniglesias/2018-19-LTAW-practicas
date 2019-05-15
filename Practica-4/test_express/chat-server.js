@@ -9,19 +9,19 @@ var resp_list = "";
 var res_date = "";
 var res_help = "";
 
-//--Servir la pagina principal
+//--Servir la pagina principal. Funcion de retrollamada a la pagina principal
 app.get('/', function(req, res){
   res.sendFile(__dirname + '/index.html');
   console.log("Página principal: /")
 });
 
-//-- Servir el cliente javascript
+//-- Servir el cliente javascript. Funcion de retrollamada al fichero chat-client.js
 app.get('/chat-clients.js', function(req, res){
   res.sendFile(__dirname + '/chat-clients.js');
   console.log("Fichero js solicitado")
 });
 
-//-- Lanzar el servidor
+//-- Lanzar el servidor. Puerto 3000
 http.listen(3000, function(){
   console.log('listening on *:3000');
 });
@@ -54,25 +54,25 @@ io.on('connection', function(socket){
       '<li>/hello</li>'+
       '<li>/date</li>'+
       '</ul>'
-      socket.emit('new_menssage', res_help);
+      socket.emit('new_message', res_help);
       console.log("/help detectado");
-      io.emit('new_message', res_help);
+      //--io.emit('new_message', res_help);
     }else if(msg == '/list'){
       resp_list = '<p>Server: el numero de usuarios actuales es:' + usuario + '</p>';
-      socket.emit('new_menssage', resp_list);
+      socket.emit('new_message', resp_list);
       console.log("/list detectado");
-      io.emit('new_message', resp_list);
+      //--io.emit('new_message', resp_list);
     }else if(msg == '/hello'){
       resp_hello == '<p>Server:'+' Hola </p>';
-      socket.emit('new_menssage', resp_hello);
+      socket.emit('new_message', resp_hello);
       console.log("/hello detectado");
-      io.emit('new_message', resp_hello);
+      //--io.emit('new_message', resp_hello);
     }else if(msg == '/date'){
       var fecha = new Date();
       resp_date = '<p>Server: ' + fecha.getDate() + '/' + fecha.getMonth() + '/' + fecha.getFullYear() +'</p>';
-      socket.emit('new_menssage', resp_date)
+      socket.emit('new_message', resp_date)
       console.log("/date detectado");
-      io.emit('new_message', resp_date);
+      //-io.emit('new_message', resp_date);
     }else{
       //-- Notificarlo en la consola del servidor
        console.log("Mensaje recibido: " + msg)
