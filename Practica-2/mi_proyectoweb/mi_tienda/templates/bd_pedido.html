@@ -10,15 +10,14 @@
     </head>
 
     <body onload="main();" text-align: center;>
-      <ul>
-          {% for msg in lista %}
-          <p>{{ msg.nombre}} {{msg.direccion}} {{ msg.movile }} {{ msg.mail}} {{ msg.mensaje}}</p>
+
+          {% for elem in lista %}
+          <p>{{ elem.nombre}} {{elem.direccion}} {{ elem.movile }} {{ elem.mail}} {{ elem.mensaje}}</p>
           {% endfor %}
-      </ul>
 
       <div id="buttons">
         <a href="/"  class="but" title="">Inicio    </a>
         <a href="/order"  class="but" title="">    Hacer Pedido</a>
-      </div>
+      </div
     </body>
 </html>

@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponse
+from django.http import HttpResponseRedirect
 
 from mi_tienda.forms import ContactForm
-from mi_tienda.models import Product
-from mi_tienda.models import Pedido
+
+from .models import Product
+from .models import Pedido
 
 # Create your views here.
 def home_view (request):
@@ -18,11 +20,16 @@ def moviles(request):
 def contact(request):
     if request.method == 'POST':
         form = ContactForm(request.POST)
+        print("Holiiiii")
         if form.is_valid():
-            cd = form.cleaned_data
+            elem= form.cleaned_data
+            print(elem)
+            pedido = Pedido(nombre=elem['nombre'],movil=elem['movile'],email=elem['mail'],direccion=elem['direccion'],mensaje=elem['mensaje'])
+            pedido.save()
+            print('guardo en bd')
             #send_mail(cd['subject'], cd ['movile'], cd['message'])
-            form.save()
-            return HttpResponseRedirect('/factura/')
+            #form.save()
+            return HttpResponseRedirect('/factura')
     else:
         form = ContactForm()
     return render(request, 'formulario.html', {'form': form})
@@ -31,15 +38,13 @@ def factura(request):
     return render(request, "factura.html", {})
 
 def basedato_pedido(request):
-
     pedido = []
     html = "<h1>Lista de Pedidos</h1>"
     objects = Pedido.objects.all()
-
-    for order in objects:
-
-        pedido.append(order);
-
+    print(objects)
+    for elem in objects:
+        pedido.append(elem);
+        print(elem.nombre)
     return render(request,'bd_pedido.html',{'lista':pedido})
 
 def iphonexs(request):

@@ -9,6 +9,7 @@ http.createServer(function (req, res) {
   console.log("---> Petición recibida");
   console.log("Recurso solicitado (URL): " + req.url);
 
+  //-- parseamos la url de forma que nos quedemos con el fichero html, y el host
   var q = url.parse(req.url, true);
   console.log("URL parseada: ");
   console.log("Host: " + q.host);
@@ -53,9 +54,14 @@ http.createServer(function (req, res) {
     if (tipo == "css")
       mime = "text/css"
 
-    if (['mp4'].includes(tipo)){
+    if (['ogg'].includes(tipo)){
       console.log("VIDEO!!!!!")
       mime = "video/" + tipo
+    }
+
+    if (['mp3'].includes(tipo)){
+      console.log("AUDIO!!!!!")
+      mime = "audio/" + tipo
     }
     //-- Generar el mensaje de respuesta
     res.writeHead(200, {'Content-Type': mime});
