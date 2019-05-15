@@ -13,6 +13,6 @@ class Product (models.Model):
 class Pedido (models.Model):
     nombre = models.CharField(max_length=200)
     movile = models.CharField(max_length=200)
-    email = models.CharField(max_length=200)
     direccion = models.CharField(max_length=200)
+    email = models.CharField(max_length=200)
     mensaje = models.CharField(max_length=200)

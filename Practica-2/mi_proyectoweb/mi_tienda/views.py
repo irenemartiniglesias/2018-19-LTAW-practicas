@@ -23,11 +23,9 @@ def contact(request):
         print("Holiiiii")
         if form.is_valid():
             elem= form.cleaned_data
-            print(elem)
-            pedido = Pedido(nombre=elem['nombre'],movil=elem['movile'],email=elem['mail'],direccion=elem['direccion'],mensaje=elem['mensaje'])
+            pedido = Pedido(nombre=elem['nombre'],direccion=elem['direccion'],email=elem['mail'],mensaje=elem['mensaje'])
             pedido.save()
             print('guardo en bd')
-            #send_mail(cd['subject'], cd ['movile'], cd['message'])
             #form.save()
             return HttpResponseRedirect('/factura')
     else:
@@ -39,9 +37,8 @@ def factura(request):
 
 def basedato_pedido(request):
     pedido = []
-    html = "<h1>Lista de Pedidos</h1>"
     objects = Pedido.objects.all()
-    print(objects)
+
     for elem in objects:
         pedido.append(elem);
         print(elem.nombre)
